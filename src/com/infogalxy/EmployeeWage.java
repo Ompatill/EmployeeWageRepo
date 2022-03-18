@@ -8,6 +8,7 @@ public class EmployeeWage {
         System.out.println("Welcome to Employee Wage Computation");
         //UC-2:Calculating Employee's Dail Wage
         final int WAGE_PER_HR = 20;
+        final int PART_TIME_HR = 4;
         final int FULL_DAY_HR = 8;
         int total_wage = 0;
         Random random = new Random();
@@ -19,7 +20,16 @@ public class EmployeeWage {
             total_wage = 0;
         }else {
             System.out.println("Employee is Present");
-            total_wage = WAGE_PER_HR * FULL_DAY_HR;
+            //UC-3: ADD Part Time Employee And Wage
+            int empType = random.nextInt() %2 ;
+            if ( empType == 0){
+                System.out.println("Employee is Part Time");
+                total_wage = WAGE_PER_HR * PART_TIME_HR;
+            } else {
+                System.out.println("Employee is Full Time");
+                total_wage = WAGE_PER_HR * FULL_DAY_HR;
+            }
+
         }
         System.out.println("Employee's Full Day Wage:"+total_wage);
     }
